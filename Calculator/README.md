@@ -1,36 +1,29 @@
-## Introduction
+# calculator
 
-Welcome to my Simple Calculator! This is a basic calculator that allows users to perform simple arithmetic operations such as addition, subtraction, multiplication, and division. This calculator was created using HTML, CSS, and JavaScript and is perfect for students, professionals, or anyone who needs to perform basic calculations quickly and easily.
+This template should help get you started developing with Vue 3 in Vite.
 
-## Previews
+## Recommended IDE Setup
 
-![Preview](/Calculator/preview.jpg)
+[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
 
-## Features
+## Customize configuration
 
-- Interactive and user-friendly interface
-- Dynamic quiz creation with multiple choice questions
-- Responsive design for optimal user experience on different devices
-- Option to save and resume quizzes at a later time
+See [Vite Configuration Reference](https://vitejs.dev/config/).
 
-## Deployment
+## Project Setup
 
-This app can be deployed in two ways:
+```sh
+npm install
+```
 
-1. Clone the repository and run the index.html file locally on your computer
-2. Deploy the app on a web server and access it through a web browser
+### Compile and Hot-Reload for Development
 
-## Requirements
+```sh
+npm run dev
+```
 
-- A modern web browser such as Google Chrome, Mozilla Firefox, or Microsoft Edge
-- Basic knowledge of HTML, CSS, and JavaScript
+### Compile and Minify for Production
 
-## How to Use
-
-1. Clone the repository or download the files to your computer
-2. Open the index.html file in a web browser
-3. Perform basic arithmetic operations using the calculator
-
-## Conclusion
-
-This Simple Calculator is a basic and easy-to-use calculator that is perfect for students, professionals, or anyone who needs to perform basic calculations quickly and easily. Whether you're in the classroom or at the office, this calculator will help you get the job done. If you have any questions or suggestions, feel free to reach out to me. Enjoy!
+```sh
+npm run build
+```
