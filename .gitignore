@@ -1,0 +1,31 @@
+# Packages
+node_modules/
+
+# Build folders
+/dist
+
+# Editor specific files
+.DS_Store
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw*
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Local env files
+.env
+.env.local
+.env.*.local
+
+# Testing tools
+coverage/
+
+# Temporary files
+temp/
+types/v3-generated.d.ts
