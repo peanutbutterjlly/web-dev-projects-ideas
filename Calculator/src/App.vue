@@ -6,7 +6,7 @@ const question = ref('asdf');
 
 <template>
   <div class="wrapper">
-    <h1>Calculator</h1>
+    <h1 class="sr-only">Calculator</h1>
     <main>
       <input v-model="question" />
       <div class="operators">
@@ -37,6 +37,15 @@ const question = ref('asdf');
 </template>
 
 <style scoped>
+.sr-only {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 main {
   width: 12rem;
   border: 1px solid;
