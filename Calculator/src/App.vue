@@ -1,19 +1,35 @@
 <script setup>
 import { ref } from 'vue';
 
-const question = ref('asdf');
+const userInput = ref('0');
+const evaluateThis = ref([]);
+
+function calculate(op) {
+  if (evaluate.value) {
+    evaluateThis.value.push(op);
+    evaluateThis.value.push(userInput.value);
+  } else {
+    evaluateThis.value.push(userInput.value);
+  }
+  userInput.value = 0;
+}
+
+function evaluate() {
+  console.log('calculate this!');
+  console.log(evaluateThis.value);
+}
 </script>
 
 <template>
   <div class="wrapper">
     <h1 class="sr-only">Calculator</h1>
-    <main>
-      <input v-model="question" />
+    <form @submit.prevent="evaluate">
+      <input v-model="userInput" type="number" />
       <div class="operators">
-        <button>+</button>
-        <button>-</button>
-        <button>*</button>
-        <button>/</button>
+        <button @click="calculate('+')">+</button>
+        <button @click="calculate('-')">-</button>
+        <button @click="calculate('*')">*</button>
+        <button @click="calculate('/')">/</button>
       </div>
       <div class="nums-and-stuff">
         <div class="nums">
@@ -28,11 +44,11 @@ const question = ref('asdf');
           <button>9</button>
         </div>
         <div class="stuff">
-          <button>C</button>
-          <button>=</button>
+          <button type="submit">C</button>
+          <button type="submit">=</button>
         </div>
       </div>
-    </main>
+    </form>
   </div>
 </template>
 
@@ -46,7 +62,7 @@ const question = ref('asdf');
   overflow: hidden;
 }
 
-main {
+form {
   width: 12rem;
   border: 1px solid;
   height: 15rem;
