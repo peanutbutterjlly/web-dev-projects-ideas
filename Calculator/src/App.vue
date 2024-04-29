@@ -1,87 +1,63 @@
 <script setup>
+import { evaluate } from 'mathjs';
 import { onBeforeUnmount, onMounted, ref } from 'vue';
 
 const userInput = ref('');
-const evaluateThis = ref([]);
+const operationsQueue = ref([]);
 
-function calculate(op) {
-  evaluateThis.value.push(userInput.value);
-  evaluateThis.value.push(op);
+function addToOperationsQueue(op) {
+  operationsQueue.value.push(userInput.value, op);
   userInput.value = '';
 }
 
-function evaluate() {
-  evaluateThis.value.push(userInput.value);
-  userInput.value = eval([...evaluateThis.value].join(''));
-  evaluateThis.value = [];
+function computeResult() {
+  operationsQueue.value.push(userInput.value);
+  userInput.value = evaluate(operationsQueue.value.join(' '));
+  operationsQueue.value = [];
 }
 
-function clear() {
+function resetCalculator() {
   userInput.value = '';
-  evaluateThis.value = [];
+  operationsQueue.value = [];
 }
 
 function handleKeyPress(event) {
   const key = event.key;
-
   if (key >= '0' && key <= '9') {
     userInput.value += key;
-  }
-
-  switch (key) {
-    case '+':
-    case '-':
-    case '*':
-    case '/':
-      calculate(key);
-      break;
-    case 'Enter':
-      evaluate();
-      break;
-    default:
-      break;
+  } else if (['+', '-', '*', '/'].includes(key)) {
+    addToOperationsQueue(key);
   }
 }
 
-onMounted(() => {
-  window.addEventListener('keypress', handleKeyPress);
-});
-
-onBeforeUnmount(() => {
-  window.removeEventListener('keypress', handleKeyPress);
-});
+onMounted(() => window.addEventListener('keypress', handleKeyPress));
+onBeforeUnmount(() => window.removeEventListener('keypress', handleKeyPress));
 </script>
 
 <template>
   <div class="wrapper">
     <h1 class="sr-only">Calculator</h1>
-    <form @submit.prevent="evaluate()">
+    <section>
       <input v-model="userInput" type="number" placeholder="0" />
       <div class="operators">
-        <button @click="calculate('+')">+</button>
-        <button @click="calculate('-')">-</button>
-        <button @click="calculate('*')">*</button>
-        <button @click="calculate('/')">/</button>
+        <button @click="addToOperationsQueue('+')">+</button>
+        <button @click="addToOperationsQueue('-')">-</button>
+        <button @click="addToOperationsQueue('*')">*</button>
+        <button @click="addToOperationsQueue('/')">/</button>
       </div>
       <div class="nums-and-stuff">
         <div class="nums">
-          <button type="button" @click="userInput += '1'">1</button>
-          <button type="button" @click="userInput += '2'">2</button>
-          <button type="button" @click="userInput += '3'">3</button>
-          <button type="button" @click="userInput += '4'">4</button>
-          <button type="button" @click="userInput += '5'">5</button>
-          <button type="button" @click="userInput += '6'">6</button>
-          <button type="button" @click="userInput += '7'">7</button>
-          <button type="button" @click="userInput += '8'">8</button>
-          <button type="button" @click="userInput += '9'">9</button>
+          <button v-for="num in 9" :key="num" @click="userInput += num">
+            {{ num }}
+          </button>
         </div>
         <div class="stuff">
-          <button @click.prevent="clear()">C</button>
-          <button type="submit">=</button>
+          <button @click="resetCalculator">C</button>
+          <button @click="computeResult">=</button>
         </div>
       </div>
-      <button type="button" @click="userInput += '0'">0</button>
-    </form>
+      <button @click="userInput += '0'">0</button>
+    </section>
   </div>
 </template>
 
@@ -95,7 +71,12 @@ onBeforeUnmount(() => {
   overflow: hidden;
 }
 
-form {
+.wrapper {
+  display: grid;
+  place-content: center;
+}
+
+section {
   width: 12rem;
   border: 1px solid;
   height: 15rem;
@@ -105,6 +86,7 @@ form {
 input {
   max-width: 100%;
   padding: 0.2rem;
+  text-align: end;
 }
 
 .operators {
@@ -131,5 +113,15 @@ input {
 
 .stuff button {
   padding-inline: 0.5rem;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
 }
 </style>
