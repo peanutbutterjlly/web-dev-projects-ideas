@@ -27,11 +27,17 @@ function handleKeyPress(event) {
     userInput.value += key;
   } else if (['+', '-', '*', '/'].includes(key)) {
     addToOperationsQueue(key);
+  } else if (key === 'Enter') {
+    computeResult();
+    event.preventDefault();
+  } else if (key === 'Escape') {
+    resetCalculator();
+    event.preventDefault();
   }
 }
 
-onMounted(() => window.addEventListener('keypress', handleKeyPress));
-onBeforeUnmount(() => window.removeEventListener('keypress', handleKeyPress));
+onMounted(() => window.addEventListener('keydown', handleKeyPress));
+onBeforeUnmount(() => window.removeEventListener('keydown', handleKeyPress));
 </script>
 
 <template>

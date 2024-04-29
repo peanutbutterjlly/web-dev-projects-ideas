@@ -156,7 +156,7 @@ $('[data-val="clear"]')
           .click()
           .delay(200)
           .queue(function () {
-            $('[data-val="x"]').click();
+            $('[data-val="x"]').click()
               .delay(200)
               .queue(function () {
                 $('[data-val="7"]').click();
