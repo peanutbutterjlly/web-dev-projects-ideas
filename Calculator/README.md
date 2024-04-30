@@ -1,14 +1,14 @@
-# calculator
+# Calculator
 
-This template should help get you started developing with Vue 3 in Vite.
+This is a basic calculator that allows users to perform simple math ops such as addition, subtraction, multiplication, and division. Used Vue js.
 
-## Recommended IDE Setup
+## Previews
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+![Preview](public/calc-preview.webp)
 
-## Customize configuration
+## Conclusion
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+This calculator is crazy basic, it'll except a mix of button clicks and keyboard presses for number/operational inputs.
 
 ## Project Setup
 

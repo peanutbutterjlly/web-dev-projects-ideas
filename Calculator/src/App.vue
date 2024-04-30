@@ -5,25 +5,46 @@ import { computed, onBeforeUnmount, onMounted, ref } from 'vue';
 const userInput = ref('');
 const operationsQueue = ref([]);
 
+/**
+ * Adds the given operation to the operations queue and clears the user input.
+ *
+ * @param {string} op - The operation to be added to the queue.
+ * @return {void} This function does not return anything.
+ */
 function addToOperationsQueue(op) {
   operationsQueue.value.push(userInput.value, op);
   userInput.value = '';
 }
 
+/**
+ * Computes the result of the operations queue and updates the user input.
+ *
+ * @return {void} This function does not return anything.
+ */
 function computeResult() {
   operationsQueue.value.push(userInput.value);
   userInput.value = evaluate(operationsQueue.value.join(' '));
   operationsQueue.value = [];
 }
 
+/**
+ * Resets the calculator by clearing the user input and emptying the operations queue.
+ *
+ * @return {void} This function does not return anything.
+ */
 function resetCalculator() {
   userInput.value = '';
   operationsQueue.value = [];
 }
 
+/**
+ * Handles key press events for the calculator.
+ *
+ * @param {KeyboardEvent} event - The key press event.
+ * @return {void} This function does not return anything.
+ */
 function handleKeyPress(event) {
-  const key = event.key;
-  const target = event.target;
+  const { key, target } = event;
 
   if (target.matches('input[type="number"]')) {
     if (key >= '0' && key <= '9') {
@@ -59,7 +80,13 @@ onBeforeUnmount(() => window.removeEventListener('keydown', handleKeyPress));
   <div class="wrapper">
     <h1 class="sr-only">Calculator</h1>
     <section>
-      <input v-model="userInput" type="number" placeholder="0" />
+      <label class="sr-only" for="calculator">Calculator input/output</label>
+      <input
+        id="calculator"
+        v-model="userInput"
+        type="number"
+        placeholder="0"
+      />
       <div class="operators">
         <button @click="addToOperationsQueue('+')">+</button>
         <button @click="addToOperationsQueue('-')">-</button>
@@ -105,7 +132,7 @@ section {
   background: white;
   border: 1px solid;
   border-radius: 0.5rem;
-  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-lg);
   overflow: hidden;
   padding: 1rem;
   height: 15rem;
@@ -150,6 +177,7 @@ input {
   padding-inline: 0.5rem;
 }
 
+/* Hide arrows from input number type */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
