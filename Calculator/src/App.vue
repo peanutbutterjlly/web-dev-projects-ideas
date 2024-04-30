@@ -1,6 +1,6 @@
 <script setup>
 import { evaluate } from 'mathjs';
-import { onBeforeUnmount, onMounted, ref } from 'vue';
+import { computed, onBeforeUnmount, onMounted, ref } from 'vue';
 
 const userInput = ref('');
 const operationsQueue = ref([]);
@@ -23,6 +23,13 @@ function resetCalculator() {
 
 function handleKeyPress(event) {
   const key = event.key;
+  const target = event.target;
+
+  if (target.matches('input[type="number"]')) {
+    if (key >= '0' && key <= '9') {
+      return;
+    }
+  }
   if (key >= '0' && key <= '9') {
     userInput.value += key;
   } else if (['+', '-', '*', '/'].includes(key)) {
@@ -35,6 +42,14 @@ function handleKeyPress(event) {
     event.preventDefault();
   }
 }
+
+const reversedRows = computed(() => {
+  const numbers = [];
+  for (let i = 9; i > 0; i--) {
+    numbers.push(i);
+  }
+  return numbers;
+});
 
 onMounted(() => window.addEventListener('keydown', handleKeyPress));
 onBeforeUnmount(() => window.removeEventListener('keydown', handleKeyPress));
@@ -53,7 +68,11 @@ onBeforeUnmount(() => window.removeEventListener('keydown', handleKeyPress));
       </div>
       <div class="nums-and-stuff">
         <div class="nums">
-          <button v-for="num in 9" :key="num" @click="userInput += num">
+          <button
+            v-for="num in reversedRows"
+            :key="num"
+            @click="userInput += num"
+          >
             {{ num }}
           </button>
         </div>
@@ -109,8 +128,12 @@ input {
 }
 
 .nums {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-flow: row-reverse wrap;
+}
+
+.nums button {
+  flex: 1 0 33.333%;
 }
 
 .stuff {
