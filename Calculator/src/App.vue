@@ -102,11 +102,17 @@ onBeforeUnmount(() => window.removeEventListener('keydown', handleKeyPress));
 }
 
 section {
-  width: 12rem;
+  background: white;
   border: 1px solid;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 1rem;
   height: 15rem;
   display: grid;
+  place-content: center;
   grid-template-rows: auto auto 1fr;
+  width: 12rem;
 }
 input {
   max-width: 100%;
