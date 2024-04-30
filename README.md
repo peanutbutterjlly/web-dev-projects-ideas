@@ -1,14 +1,14 @@
 <div align="center">
-<img src="https://media.giphy.com/media/L8K62iTDkzGX6/giphy.gif"/>
+<img src="https://media.giphy.com/media/scZPhLqaVOM1qG4lT9/giphy.gif"/>
 <h1>Web-Development Projects ideas</h1>
-<p>The internet is full of valuable tutorials for web developers about HTML, CSS, and JavaScript. But sometimes, it's hard to keep track of them all. This GitHub repository is designed to be your go-to place for web development projects so you can stay up-to-date with the latest developments in the industry and use new techniques to develop your own projects.</p>
+<p>This repo is forked from <a href="https://github.com/s-shemmee/Web-Dev-Projects-Ideas">s-shemmee/Web-Dev-Projects-Ideas</a>. It has 40 project ideas for web dev, and I'm doing my spin on each project in Vue (as I'm in the process of learning Vue).</p>
 </div>
 
 ---
 
 **+40 project ideas for web developers**
 
-- Calculator
+- [Calculator](https://github.com/peanutbutterjlly/Web-Dev-Projects-Idea/tree/main/Calculator)
 - Quiz App
 - Rock Paper Scissors
 - Note App
