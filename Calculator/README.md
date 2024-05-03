@@ -1,6 +1,6 @@
 # Calculator
 
-This is a basic calculator that allows users to perform simple math ops such as addition, subtraction, multiplication, and division. Used Vue js.
+This is a basic calculator that allows users to perform simple math ops such as addition, subtraction, multiplication, and division. Used Vue js. [View it live](https://steves-vue-calc.netlify.app/)
 
 ## Previews
 
