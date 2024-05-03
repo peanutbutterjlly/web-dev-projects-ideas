@@ -7,6 +7,7 @@ import WifiIcon from './WifiIcon.vue';
 <template>
   <div class="status">
     <time>4:20</time>
+    <div class="camera"></div>
     <span>
       <BarIcon />
       <WifiIcon />
@@ -23,6 +24,8 @@ import WifiIcon from './WifiIcon.vue';
   padding: 1rem 1.5rem 0.1rem;
 
   display: flex;
+  align-items: center;
+
   grid-area: status;
 }
 
@@ -33,5 +36,13 @@ import WifiIcon from './WifiIcon.vue';
 .status span {
   display: flex;
   gap: 0.2rem;
+}
+
+.camera {
+  border-radius: 50%;
+  border: 0.5px solid hsl(238deg 48.39% 24.31%);
+  width: 0.3rem;
+  height: 0.3rem;
+  margin-right: 0.5rem;
 }
 </style>
