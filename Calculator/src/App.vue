@@ -83,4 +83,13 @@ section {
     'buttons buttons buttons buttons'
     'bottom bottom bottom bottom';
 }
+
+@media screen and (max-width: 450px) {
+  section {
+    max-width: 100vw;
+    max-height: 100vh;
+    max-width: 100dvw;
+    max-height: 100dvh;
+  }
+}
 </style>
