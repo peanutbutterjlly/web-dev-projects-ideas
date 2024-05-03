@@ -5,6 +5,7 @@ import { onBeforeUnmount, onMounted } from 'vue';
 import BottomBar from './components/BottomBar.vue';
 import ButtonsGrid from './components/ButtonsGrid.vue';
 import Display from './components/Display.vue';
+import StatusBar from './components/StatusBar.vue';
 
 const calculator = useCalculatorStore();
 const { userInput } = storeToRefs(calculator);
@@ -44,9 +45,7 @@ onBeforeUnmount(() => window.removeEventListener('keydown', handleKeyPress));
 <template>
   <main>
     <section>
-      <div class="status">
-        <time>4:20</time>
-      </div>
+      <StatusBar />
       <Display />
       <ButtonsGrid />
       <BottomBar />
@@ -83,19 +82,5 @@ section {
     'display display display display'
     'buttons buttons buttons buttons'
     'bottom bottom bottom bottom';
-}
-
-.status {
-  color: white;
-  font-size: 0.8rem;
-  overflow: hidden;
-  padding: 1rem 1.5rem 0.1rem;
-
-  display: flex;
-  grid-area: status;
-}
-
-.status time {
-  margin-right: auto;
 }
 </style>
