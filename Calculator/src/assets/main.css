@@ -4,7 +4,7 @@
   --heading-font-family: ui-rounded, 'Hiragino Maru Gothic ProN', Quicksand,
     Comfortaa, Manjari, 'Arial Rounded MT', 'Arial Rounded MT Bold', Calibri,
     source-sans-pro, sans-serif;
-  --font-size: clamp(1rem, calc(1.6vw + 0.3rem), 1.5rem);
+  --font-size: 1.5rem;
   --line-height: 1.5;
   --measure: 80ch;
   /* elevations */
