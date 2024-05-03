@@ -1,41 +1,13 @@
 <script setup>
-import { evaluate } from 'mathjs';
-import { computed, onBeforeUnmount, onMounted, ref } from 'vue';
+import { useCalculatorStore } from '@/stores/calculatorStore.js';
+import { storeToRefs } from 'pinia';
+import { onBeforeUnmount, onMounted } from 'vue';
+import Display from './components/Display.vue';
+import BottomBar from './components/BottomBar.vue';
 
-const userInput = ref('');
-const operationsQueue = ref([]);
-
-/**
- * Adds the given operation to the operations queue and clears the user input.
- *
- * @param {string} op - The operation to be added to the queue.
- * @return {void} This function does not return anything.
- */
-function addToOperationsQueue(op) {
-  operationsQueue.value.push(userInput.value, op);
-  userInput.value = '';
-}
-
-/**
- * Computes the result of the operations queue and updates the user input.
- *
- * @return {void} This function does not return anything.
- */
-function computeResult() {
-  operationsQueue.value.push(userInput.value);
-  userInput.value = evaluate(operationsQueue.value.join(' '));
-  operationsQueue.value = [];
-}
-
-/**
- * Resets the calculator by clearing the user input and emptying the operations queue.
- *
- * @return {void} This function does not return anything.
- */
-function resetCalculator() {
-  userInput.value = '';
-  operationsQueue.value = [];
-}
+const calculator = useCalculatorStore();
+const { userInput } = storeToRefs(calculator);
+const { addToOperationsQueue, computeResult, resetCalculator } = calculator;
 
 /**
  * Handles key press events for the calculator.
@@ -64,127 +36,140 @@ function handleKeyPress(event) {
   }
 }
 
-const reversedRows = computed(() => {
-  const numbers = [];
-  for (let i = 9; i > 0; i--) {
-    numbers.push(i);
-  }
-  return numbers;
-});
-
 onMounted(() => window.addEventListener('keydown', handleKeyPress));
 onBeforeUnmount(() => window.removeEventListener('keydown', handleKeyPress));
 </script>
 
 <template>
-  <div class="wrapper">
-    <h1 class="sr-only">Calculator</h1>
+  <main>
     <section>
-      <label class="sr-only" for="calculator">Calculator input/output</label>
-      <input
-        id="calculator"
-        v-model="userInput"
-        type="number"
-        placeholder="0"
-      />
-      <div class="operators">
-        <button @click="addToOperationsQueue('+')">+</button>
-        <button @click="addToOperationsQueue('-')">-</button>
-        <button @click="addToOperationsQueue('*')">*</button>
-        <button @click="addToOperationsQueue('/')">/</button>
+      <div class="status">
+        <time>4:20</time>
       </div>
-      <div class="nums-and-stuff">
-        <div class="nums">
-          <button
-            v-for="num in reversedRows"
-            :key="num"
-            @click="userInput += num"
-          >
-            {{ num }}
-          </button>
-        </div>
-        <div class="stuff">
-          <button @click="resetCalculator">C</button>
-          <button @click="computeResult">=</button>
-        </div>
+      <Display />
+      <div class="buttons">
+        <button class="clear" @click="resetCalculator">AC</button>
+        <button class="divide sign" @click="addToOperationsQueue('/')">
+          ÷
+        </button>
+        <button class="seven num" @click="userInput += '7'">7</button>
+        <button class="eight num" @click="userInput += '8'">8</button>
+        <button class="nine num" @click="userInput += '9'">9</button>
+        <button class="multiply sign" @click="addToOperationsQueue('*')">
+          ×
+        </button>
+        <button class="four num" @click="userInput += '4'">4</button>
+        <button class="five num" @click="userInput += '5'">5</button>
+        <button class="six num" @click="userInput += '6'">6</button>
+        <button class="subtract sign" @click="addToOperationsQueue('-')">
+          -
+        </button>
+        <button class="one num" @click="userInput += '1'">1</button>
+        <button class="two num" @click="userInput += '2'">2</button>
+        <button class="three num" @click="userInput += '3'">3</button>
+        <button class="add sign" @click="addToOperationsQueue('+')">+</button>
+        <button class="zero num" @click="userInput += '0'">0</button>
+        <button class="dot num" @click="userInput += '.'">.</button>
+        <button class="equals sign" @click="computeResult">=</button>
       </div>
-      <button @click="userInput += '0'">0</button>
+      <BottomBar />
     </section>
-  </div>
+  </main>
 </template>
 
 <style scoped>
-.sr-only {
-  position: absolute;
-  left: -10000px;
-  top: auto;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-}
-
-.wrapper {
+main {
   display: grid;
   place-content: center;
 }
-
 section {
-  background: white;
-  border: 1px solid;
-  border-radius: 0.5rem;
+  --inline-padding: 1rem;
+  --button-gray: rgb(51 51 51);
+  --orange: rgb(247 162 34);
+
+  background: black;
+  border: 2px solid gray;
+  border-radius: 40px;
   box-shadow: var(--shadow-lg);
+  font-size: 2rem;
+  max-height: 667px;
+  max-width: 375px;
+
+  display: grid;
+  grid-template-rows: auto 2fr 10fr auto;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas:
+    'status status status status'
+    'display display display display'
+    'buttons buttons buttons buttons'
+    'bottom bottom bottom bottom';
+}
+
+.status {
+  color: white;
+  font-size: 0.8rem;
   overflow: hidden;
-  padding: 1rem;
-  height: 15rem;
+  padding: 1rem 1.5rem 0.1rem;
+
+  display: flex;
+
+  grid-area: status;
+}
+
+.status time {
+  margin-right: auto;
+}
+
+button {
+  background: gray;
+  border: none;
+  border-radius: 99rem;
+  color: white;
+  cursor: pointer;
+  font-size: 1.5rem;
+
   display: grid;
   place-content: center;
-  grid-template-rows: auto auto 1fr;
-  width: 12rem;
-}
-input {
-  max-width: 100%;
-  padding: 0.2rem;
-  text-align: end;
 }
 
-.operators {
-  display: flex;
-}
+.buttons {
+  grid-area: buttons;
+  padding-inline: var(--inline-padding);
 
-.operators button {
-  flex: 1;
-}
-
-.nums-and-stuff {
   display: grid;
-  grid-template-columns: 1fr auto;
+  gap: 14px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-areas:
+    'clear clear clear divide'
+    'seven eight nine  multiply'
+    'four  five  six   subtract'
+    'one   two   three add'
+    'zero  zero  dot   equals';
 }
 
-.nums {
+.clear {
+  grid-area: clear;
+  color: black;
+}
+
+.divide {
+  grid-area: divide;
+}
+
+.num {
+  background-color: var(--button-gray);
+}
+
+.zero {
+  grid-area: zero;
   display: flex;
-  flex-flow: row-reverse wrap;
+  justify-content: start;
+  align-items: center;
+  padding-inline-start: calc(var(--inline-padding) + 6px);
 }
 
-.nums button {
-  flex: 1 0 33.333%;
-}
-
-.stuff {
-  display: grid;
-}
-
-.stuff button {
-  padding-inline: 0.5rem;
-}
-
-/* Hide arrows from input number type */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-input[type='number'] {
-  -moz-appearance: textfield;
+.sign {
+  background-color: var(--orange);
 }
 </style>
