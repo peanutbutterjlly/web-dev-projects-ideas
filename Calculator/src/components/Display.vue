@@ -1,6 +1,6 @@
 <script setup>
-import { storeToRefs } from 'pinia';
 import { useCalculatorStore } from '@/stores/calculatorStore.js';
+import { storeToRefs } from 'pinia';
 
 const store = useCalculatorStore();
 const { userInput } = storeToRefs(store);
@@ -38,5 +38,15 @@ const { userInput } = storeToRefs(store);
   width: 100%;
 
   grid-area: display;
+}
+
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
 }
 </style>

@@ -2,8 +2,8 @@
 import { useCalculatorStore } from '@/stores/calculatorStore.js';
 import { storeToRefs } from 'pinia';
 import { onBeforeUnmount, onMounted } from 'vue';
-import Display from './components/Display.vue';
 import BottomBar from './components/BottomBar.vue';
+import Display from './components/Display.vue';
 
 const calculator = useCalculatorStore();
 const { userInput } = storeToRefs(calculator);
@@ -81,7 +81,10 @@ onBeforeUnmount(() => window.removeEventListener('keydown', handleKeyPress));
 main {
   display: grid;
   place-content: center;
+  height: 100vh;
+  height: 100dvh;
 }
+
 section {
   --inline-padding: 1rem;
   --button-gray: rgb(51 51 51);

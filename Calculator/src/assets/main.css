@@ -41,10 +41,6 @@ html:focus-within {
 :where(html, body) {
   height: 100%;
   background-color: hsl(0, 0%, 97%);
-  color: hsl(0, 0%, 11%);
-  margin: auto;
-  max-inline-size: var(--measure);
-  padding: 3em 1em;
 }
 
 :where(img, picture, video, canvas, svg) {
