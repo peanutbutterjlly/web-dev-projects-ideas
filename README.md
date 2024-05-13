@@ -14,11 +14,11 @@
 - Note App
 - Stopwatch App
 - QR Code Reader
-- [Weather App](https://github.com/shemmee/Weather-App)
-- [Portfolio Website](https://github.com/shemmee/Potfolio-Project)
-- [TikTok Clone](https://github.com/shemmee/TikTok-UI-Clone)
-- [Dictionary Web App](https://github.com/shemmee/Dictionary-React-App)
-- [Landing Page](https://github.com/shemmee/NFT-Portfolio-Landing-Page)
+- Weather App
+- Portfolio Website
+- TikTok Clone
+- Dictionary Web App
+- Landing Page
 - E-Commerce Website
 - Password Generator
 - Tic Tac Toe Game
