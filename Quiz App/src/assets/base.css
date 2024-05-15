@@ -37,12 +37,6 @@ html:focus-within {
 
 :where(html, body) {
   height: 100%;
-  /* uncomment the code below to constrain width of entire site/page, add some padding, and center it... e.g. you want minimal styles */
-  background-color: hsl(0, 0%, 97%);
-  color: hsl(0, 0%, 11%);
-  margin: auto;
-  max-inline-size: var(--measure);
-  padding: 3em 1em;
 }
 
 :where(img, picture, video, canvas, svg) {

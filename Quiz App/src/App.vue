@@ -1,34 +1,40 @@
 <script setup lang="ts"></script>
 
 <template>
-  <main></main>
+  <main>
+    <h1 class="sr-only">Quiz App</h1>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus dolorum quisquam
+      perspiciatis tenetur voluptatem earum, laudantium animi et repellat porro nam libero eligendi
+      quidem fuga repellendus! Nostrum possimus animi dicta!
+    </p>
+  </main>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
+<style>
+:root {
+  --black: #171d14;
+  --blue: #82bee0;
+
+  --block-padding: 3em;
+  --inline-padding: 1em;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+html {
+  background-color: var(--black);
 }
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
+body {
+  display: grid;
+  place-content: center;
+  color: var(--blue);
+}
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+main {
+  border: 2px solid var(--blue);
+  border-radius: 10px;
+  inline-size: min(var(--measure), 85vw);
+  min-block-size: min(500px, 90vh);
+  padding: 3em 1em;
 }
 </style>
