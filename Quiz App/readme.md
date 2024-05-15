@@ -1,40 +1,39 @@
-## Introduction
+# quiz app
 
-Welcome to my Quiz App! This is a simple and interactive app that allows users to test their knowledge and skills in different areas of interest. This app was created using HTML, CSS, and JavaScript and is perfect for students, professionals, or anyone who wants to test their knowledge in a fun and engaging way.
+This template should help get you started developing with Vue 3 in Vite.
 
-## Previews
+## Recommended IDE Setup
 
-![Preview](/Quiz%20App/pre1.JPG)
-![Preview](/Quiz%20App/pre2.JPG)
-![Preview](/Quiz%20App/pre3.JPG)
+[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
 
-## Features
+## Type Support for `.vue` Imports in TS
 
-- Interactive and user-friendly interface
-- Dynamic quiz creation with multiple choice questions
-- Timer to track the time spent on each quiz
-- Responsive design for optimal user experience on different devices
-- Option to save and resume quizzes at a later time
+TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
 
-## Deployment
+## Customize configuration
 
-This app can be deployed in two ways:
+See [Vite Configuration Reference](https://vitejs.dev/config/).
 
-1. Clone the repository and run the index.html file locally on your computer
-2. Deploy the app on a web server and access it through a web browser
+## Project Setup
 
-## Requirements
+```sh
+npm install
+```
 
-- A modern web browser such as Google Chrome, Mozilla Firefox, or Microsoft Edge
-- Basic knowledge of HTML, CSS, and JavaScript
+### Compile and Hot-Reload for Development
 
-## How to Use
+```sh
+npm run dev
+```
 
-1. Clone the repository or download the files to your computer
-2. Open the index.html file in a web browser
-3. Create your quiz by entering questions, options, and the correct answer
-4. Start the quiz and see how well you perform
+### Type-Check, Compile and Minify for Production
 
-## Conclusion
+```sh
+npm run build
+```
 
-This Quiz App is a simple and fun way to test your knowledge and skills in different areas of interest. Whether you're a student, professional, or just someone who loves quizzes, this app is perfect for you. If you have any questions or suggestions, feel free to reach out to me. Enjoy!
+### Lint with [ESLint](https://eslint.org/)
+
+```sh
+npm run lint
+```

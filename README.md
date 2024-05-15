@@ -1,7 +1,7 @@
 <div align="center">
 <img src="https://media.giphy.com/media/scZPhLqaVOM1qG4lT9/giphy.gif"/>
 <h1>Web-Development Projects ideas</h1>
-<p>This repo is forked from <a href="https://github.com/s-shemmee/Web-Dev-Projects-Ideas">s-shemmee/Web-Dev-Projects-Ideas</a>. It has 40 project ideas for web dev, and I'm doing my spin on each project in Vue (as I'm in the process of learning Vue).</p>
+<p>This repo is forked from <a href="https://github.com/s-shemmee/Web-Dev-Projects-Idea">s-shemmee/Web-Dev-Projects-Ideas</a>. It has 40 project ideas for web dev, and I'm doing my spin on each project in <a href="https://vuejs.org/" target="_blank">Vue</a> (as I'm in the process of learning Vue).</p>
 </div>
 
 ---
