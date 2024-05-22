@@ -8,7 +8,7 @@
 
 **+40 project ideas for web developers**
 
-- [Calculator](https://github.com/peanutbutterjlly/Web-Dev-Projects-Idea/tree/main/Calculator)
+- [Calculator](https://github.com/peanutbutterjlly/Web-Dev-Projects-Idea/tree/main/calculator)
 - Quiz App
 - Rock Paper Scissors
 - Note App
