@@ -9,44 +9,44 @@
 **+40 project ideas for web developers**
 
 - [Calculator](https://github.com/peanutbutterjlly/Web-Dev-Projects-Idea/tree/main/calculator)
-- Quiz App
 - Rock Paper Scissors
-- Note App
 - Stopwatch App
-- QR Code Reader
-- Weather App
-- Portfolio Website
-- TikTok Clone
-- Dictionary Web App
-- Landing Page
-- E-Commerce Website
 - Password Generator
 - Tic Tac Toe Game
-- URL Shortner
-- Drawing App
-- Food Order Website
+- Random User API
+- Typing Speed Test
+- QR Code Reader
+- Weather App
+- Note App
+- To-Do List App
 - Meme Generator
+- Landing Page
+- Portfolio Website
+- Quiz App
+- Dictionary Web App
+- URL Shortener
+- Drawing App
 - Movie App
 - Chat App
-- Twitter Clone
 - Survey App
 - E-Book Site
-- Instgram Clone
-- Whatsapp Clone
-- Netflix Clone
-- File Sharing App
+- Memory App
+- Giphy Clone
 - Parallax Website
 - Job Search App
+- Food Order Website
+- Music Player
+- Twitter Clone
+- Instagram Clone
+- WhatsApp Clone
+- Netflix Clone
+- File Sharing App
 - Pintrest Clone
 - Dating App
 - Social Media Dashboard
 - Tracker App
-- Memory App
-- Giphy Clone
 - User Activity Tracker
 - Stock-Trading App
 - Chess Game
-- Music Player
-- To-Do List App
-- Random User API
-- Typing Speed Test
+- TikTok Clone
+- E-Commerce Website
