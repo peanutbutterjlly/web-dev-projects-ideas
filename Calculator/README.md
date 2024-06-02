@@ -4,7 +4,7 @@ This is a basic calculator that allows users to perform simple math ops such as 
 
 ## Previews
 
-![Preview](public/calc-preview.webp)
+![Preview](vue/public/calc-preview.webp)
 
 ## Conclusion
 

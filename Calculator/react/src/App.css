@@ -1,0 +1,47 @@
+#root {
+  height: 100vh;
+  height: 100dvh;
+
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+
+main {
+  display: grid;
+  place-content: center;
+}
+
+section {
+  --inline-padding: 1rem;
+  --button-gray: rgb(51 51 51);
+  --orange: rgb(247 162 34);
+
+  background: black;
+  border: 2px solid gray;
+  border-radius: 40px;
+  box-shadow: var(--shadow-lg);
+  font-size: 2rem;
+  max-height: 667px;
+  max-width: 375px;
+
+  display: grid;
+  grid-template-rows: auto 2fr 10fr auto;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas:
+    'status status status status'
+    'display display display display'
+    'buttons buttons buttons buttons'
+    'bottom bottom bottom bottom';
+}
+
+/* bottom bar */
+
+.bottom {
+  grid-area: bottom;
+  background: white;
+  border-radius: 40px;
+  height: 3px;
+  width: 40%;
+  margin-inline: auto;
+  margin-block: 1rem;
+}
