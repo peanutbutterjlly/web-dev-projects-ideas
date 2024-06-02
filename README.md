@@ -8,7 +8,7 @@
 
 **+40 project ideas for web developers**
 
-- [Calculator](https://github.com/peanutbutterjlly/Web-Dev-Projects-Idea/tree/main/calculator)
+- [Calculator](https://github.com/peanutbutterjlly/web-dev-projects-ideas/tree/main/Calculator)
 - Rock Paper Scissors
 - Stopwatch App
 - Password Generator
