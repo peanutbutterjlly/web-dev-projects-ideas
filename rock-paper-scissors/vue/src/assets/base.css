@@ -1,0 +1,126 @@
+:root {
+  /* typography */
+  --font-family: system-ui, sans-serif;
+  --heading-font-family: ui-rounded, 'Hiragino Maru Gothic ProN', Quicksand, Comfortaa, Manjari,
+    'Arial Rounded MT', 'Arial Rounded MT Bold', Calibri, source-sans-pro, sans-serif;
+  --font-size: clamp(1rem, calc(1.6vw + 0.3rem), 1.25rem);
+  --line-height: 1.5;
+  --measure: 80ch;
+  /* elevations */
+  --shadow-sm: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+  font-family: var(--font-family);
+  overflow-wrap: break-word;
+  cursor: default;
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: antialiased;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+:where(html, body) {
+  height: 100%;
+  /* uncomment the code below to constrain width of entire site/page, add some padding, and center it... e.g. you want minimal styles */
+  background-color: hsl(0, 0%, 97%);
+  color: hsl(0, 0%, 11%);
+  margin: auto;
+  max-inline-size: var(--measure);
+  padding: 3em 1em;
+}
+
+:where(img, picture, video, canvas, svg) {
+  display: block;
+  font-style: italic;
+  text-align: center;
+  max-width: 100%;
+  height: auto;
+}
+
+:where(input, button, textarea, select) {
+  font: inherit;
+}
+
+:where(p, h1, h2, h3, h4, h5, h6, li) {
+  max-inline-size: var(--measure);
+}
+
+:where(h1, h2, h3, h4, h5, h6) {
+  font-family: var(--heading-font-family);
+  font-weight: 700;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: 1.802rem;
+}
+
+h2 {
+  font-size: 1.602rem;
+}
+
+h3 {
+  font-size: 1.424rem;
+}
+
+h4 {
+  font-size: 1.266rem;
+}
+
+h5 {
+  font-size: 1.125rem;
+}
+
+small {
+  font-size: 0.889rem;
+}
+
+a:hover,
+a:focus {
+  opacity: 0.85;
+}
+
+p {
+  margin-bottom: 1rem;
+  text-wrap: pretty;
+}
+
+.sr-only {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
