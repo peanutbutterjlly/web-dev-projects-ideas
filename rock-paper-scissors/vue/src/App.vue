@@ -1,4 +1,8 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import HandIcon from './components/HandIcon.vue';
+import RockIcon from './components/RockIcon.vue';
+import ScissorIcon from './components/ScissorIcon.vue';
+</script>
 
 <template>
   <main>
@@ -9,14 +13,22 @@
         <p class="score"></p>
       </div>
     </header>
+    <section>
+      <HandIcon />
+      <RockIcon />
+      <ScissorIcon />
+    </section>
   </main>
 </template>
 
 <style scoped>
 header {
+  border: 1px solid gray;
+  border-radius: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0.5rem;
 
   & h1 {
     padding: 0.5rem;
