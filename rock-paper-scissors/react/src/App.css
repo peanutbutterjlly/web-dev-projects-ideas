@@ -22,4 +22,20 @@ header {
 section {
   display: grid;
   place-content: center;
+
+  & * {
+    background: none;
+    border: transparent;
+    justify-self: center;
+  }
+
+  & button {
+    cursor: pointer;
+  }
+}
+
+section.result {
+  display: grid;
+  place-content: center;
+  min-height: 3rem;
 }
