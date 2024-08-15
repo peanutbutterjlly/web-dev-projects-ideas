@@ -9,7 +9,7 @@
 **+40 project ideas for web developers**
 
 - [Calculator](https://github.com/peanutbutterjlly/web-dev-projects-ideas/tree/main/Calculator)
-- Rock Paper Scissors
+- [Rock Paper Scissors](https://github.com/peanutbutterjlly/web-dev-projects-ideas/tree/main/rock-paper-scissors)
 - Stopwatch App
 - Password Generator
 - Tic Tac Toe Game
