@@ -5,10 +5,10 @@
  * @return {string} The formatted time string.
  */
 export function formatTime(time) {
-  const milliseconds = time % 1000;
-  const seconds = Math.floor(time / 1000) % 60;
-  const minutes = Math.floor(time / 1000 / 60) % 60;
-  const hours = Math.floor(time / 1000 / 60 / 60);
+  const milliseconds = Math.floor((time % 1000) / 10);
+  const seconds = Math.floor((time / 1000) % 60);
+  const minutes = Math.floor((time / (1000 * 60)) % 60);
+  const hours = Math.floor(time / (1000 * 60 * 60));
   return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(
     2,
     '0'
