@@ -1,47 +1,12 @@
 import { useEffect, useState } from 'react';
 import { formatTime } from '../utils/formatTime';
+import { clear, start, stop } from '../utils/stopwatchFunctions';
+import './Stopwatch.css';
 
 export default function Stopwatch() {
   const [time, setTime] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
   const [intervalId, setIntervalId] = useState(null);
-
-  /**
-   * Starts the timer if it is not already running.
-   *
-   * @return {void} This function does not return anything.
-   */
-  function start() {
-    if (!isRunning) {
-      setIsRunning(true);
-
-      const intID = setInterval(() => {
-        setTime((prevTime) => prevTime + 10);
-      }, 10);
-
-      setIntervalId(intID);
-    }
-  }
-
-  /**
-   * Stops the timer if it is currently running.
-   *
-   * @return {void} This function does not return any value.
-   */
-  function stop() {
-    setIsRunning(false);
-    clearInterval(intervalId);
-  }
-
-  /**
-   * Resets the stopwatch to its initial state.
-   *
-   * @return {void} This function does not return any value.
-   */
-  function clear() {
-    stop();
-    setTime(0);
-  }
 
   useEffect(() => {
     return () => clearInterval(intervalId);
@@ -49,16 +14,34 @@ export default function Stopwatch() {
 
   return (
     <>
+      <h2>Stopwatch</h2>
+
       <p className="stopwatch">{formatTime(time)}</p>
-      <button disabled={isRunning} type="button" onClick={start}>
-        Start Timer
-      </button>
-      <button disabled={!isRunning} type="button" onClick={stop}>
-        Stop
-      </button>
-      <button type="button" onClick={clear}>
-        Clear
-      </button>
+
+      <div className="controls">
+        <button
+          disabled={isRunning}
+          type="button"
+          onClick={() =>
+            start({ isRunning, setIsRunning, setTime, setIntervalId })
+          }
+        >
+          Start Timer
+        </button>
+        <button
+          disabled={!isRunning}
+          type="button"
+          onClick={() => stop({ setIsRunning, intervalId })}
+        >
+          Stop
+        </button>
+        <button
+          type="button"
+          onClick={() => clear({ setTime, setIsRunning, intervalId })}
+        >
+          Clear
+        </button>
+      </div>
     </>
   );
 }

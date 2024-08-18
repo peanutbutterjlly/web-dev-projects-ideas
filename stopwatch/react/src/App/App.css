@@ -1,8 +1,17 @@
 #root {
+  height: 100vh;
+  height: 100dvh;
+  display: grid;
+  place-content: center;
+  grid-template-rows: 1fr auto;
   max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  margin-inline: auto;
   text-align: center;
+}
+
+main {
+  display: grid;
+  place-content: center;
 }
 
 .logo {
