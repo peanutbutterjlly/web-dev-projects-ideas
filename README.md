@@ -10,7 +10,7 @@
 
 - [Calculator](https://github.com/peanutbutterjlly/web-dev-projects-ideas/tree/main/Calculator)
 - [Rock Paper Scissors](https://github.com/peanutbutterjlly/web-dev-projects-ideas/tree/main/rock-paper-scissors)
-- Stopwatch App
+- [Stopwatch App](https://github.com/peanutbutterjlly/web-dev-projects-ideas/tree/main/stopwatch/react)
 - Password Generator
 - Tic Tac Toe Game
 - Random User API
