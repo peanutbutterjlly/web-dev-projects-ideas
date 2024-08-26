@@ -7,7 +7,7 @@ const PASSWORD_LENGTH = 8;
 const LETTERS = 'abcdefghijklmnopqrstuvwxyz';
 const UPPERCASE_LETTERS = LETTERS.toUpperCase();
 const NUMBERS = '0123456789';
-const SPECIAL_CHARS = `!@#$%^&*()_+-=[]\\{}|,./<>?;':"\`~`;
+const SPECIAL_CHARS = '!@#$%^&*()_+~`|}{[]:;?><,./-=';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -17,7 +17,24 @@ function App() {
   const [includeUpper, setIncludeUpper] = useState(false);
   const [includeSpecial, setIncludeSpecial] = useState(false);
 
-  function generatePassword() {}
+  /**
+   * Generates a random password based on the specified character pool and length.
+   *
+   * @return {string} The generated password
+   */
+  function generatePassword() {
+    let characterPool = LETTERS;
+    if (includeUpper) characterPool += UPPERCASE_LETTERS;
+    if (includeNumber) characterPool += NUMBERS;
+    if (includeSpecial) characterPool += SPECIAL_CHARS;
+
+    let newPassword = '';
+    for (let i = 0; i < pwLength; i++) {
+      newPassword +=
+        characterPool[Math.floor(Math.random() * characterPool.length)];
+    }
+    setPassword(newPassword);
+  }
 
   return (
     <>
