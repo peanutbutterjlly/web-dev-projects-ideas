@@ -3,8 +3,21 @@ import reactLogo from '../../assets/react.svg';
 import './App.css';
 import viteLogo from '/vite.svg';
 
+const PASSWORD_LENGTH = 8;
+const LETTERS = 'abcdefghijklmnopqrstuvwxyz';
+const UPPERCASE_LETTERS = LETTERS.toUpperCase();
+const NUMBERS = '0123456789';
+const SPECIAL_CHARS = `!@#$%^&*()_+-=[]\\{}|,./<>?;':"\`~`;
+
 function App() {
   const [count, setCount] = useState(0);
+  const [password, setPassword] = useState('');
+  const [pwLength, setPwLength] = useState(PASSWORD_LENGTH);
+  const [includeNumber, setIncludeNumber] = useState(false);
+  const [includeUpper, setIncludeUpper] = useState(false);
+  const [includeSpecial, setIncludeSpecial] = useState(false);
+
+  function generatePassword() {}
 
   return (
     <>
@@ -16,7 +29,9 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Vite + React</h1>
+      <h1>
+        Vite + React <br /> Password Generator
+      </h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
