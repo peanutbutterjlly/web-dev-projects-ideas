@@ -10,7 +10,6 @@ const NUMBERS = '0123456789';
 const SPECIAL_CHARS = '!@#$%^&*()_+~`|}{[]:;?><,./-=';
 
 function App() {
-  const [count, setCount] = useState(0);
   const [password, setPassword] = useState('');
   const [pwLength, setPwLength] = useState(PASSWORD_LENGTH);
   const [includeNumber, setIncludeNumber] = useState(false);
@@ -50,12 +49,45 @@ function App() {
         Vite + React <br /> Password Generator
       </h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+        <p>Password: {password}</p>
+        <button onClick={generatePassword}>Create Password</button>
+        <div>
+          <input
+            type="range"
+            id="password-length"
+            max={32}
+            value={pwLength}
+            onChange={(e) => setPwLength(e.target.value)}
+          />
+          <label htmlFor="password-length">Password Length</label>
+        </div>
+        <div>
+          <input
+            type="checkbox"
+            id="num-checkbox"
+            checked={includeNumber}
+            onChange={() => setIncludeNumber(!includeNumber)}
+          />
+          <label htmlFor="num-checkbox">Include Numbers</label>
+        </div>
+        <div>
+          <input
+            type="checkbox"
+            id="upper-checkbox"
+            checked={includeUpper}
+            onChange={() => setIncludeUpper(!includeUpper)}
+          />
+          <label htmlFor="upper-checkbox">Include Uppercase Letters</label>
+        </div>
+        <div>
+          <input
+            type="checkbox"
+            id="special-checkbox"
+            checked={includeSpecial}
+            onChange={() => setIncludeSpecial(!includeSpecial)}
+          />
+          <label htmlFor="special-checkbox">Include Special Letters</label>
+        </div>
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
