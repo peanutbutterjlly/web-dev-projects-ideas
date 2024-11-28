@@ -21,7 +21,7 @@ import ScissorIcon from './components/ScissorIcon.vue';
   </main>
 </template>
 
-<style scoped>
+<style>
 header {
   border: 1px solid gray;
   border-radius: 1rem;
@@ -40,6 +40,21 @@ header {
     align-items: center;
     margin: 0.5rem;
     padding: 0.5rem;
+  }
+}
+
+section {
+  display: grid;
+  place-content: center;
+
+  & * {
+    background: none;
+    border: transparent;
+    justify-self: center;
+  }
+
+  & button {
+    cursor: pointer;
   }
 }
 </style>
